@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Bienvenido</title>
+<style>
+    body {
+        margin: 0;
+        background: radial-gradient(circle at center, #001a33, #000);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    h1 {
+        font-size: 55px;
+        color: #00eaff;
+        text-shadow: 0 0 20px #00eaff, 0 0 40px #0088ff;
+        animation: pulso 2s infinite alternate ease-in-out;
+        opacity: 0;
+        animation: aparecer 2.5s forwards, pulso 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes aparecer {
+        0% { opacity: 0; transform: scale(0.5); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulso {
+        0% { text-shadow: 0 0 20px #00eaff, 0 0 40px #0088ff; }
+        100% { text-shadow: 0 0 40px #00eaff, 0 0 80px #00cfff; }
+    }
+
+    /* Partículas */
+    .particle {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: #00aaff;
+        border-radius: 50%;
+        animation: subir 4s linear infinite;
+        opacity: 0.6;
+    }
+
+    @keyframes subir {
+        from { transform: translateY(100vh); }
+        to   { transform: translateY(-10vh); }
+    }
+</style>
+
+<script>
+    setTimeout(() => { window.location.href = "index.html"; }, 3000);
+
+    // Crear partículas neon
+    document.addEventListener("DOMContentLoaded", () => {
+        for(let i=0; i<40; i++){
+            let p = document.createElement("div");
+            p.className = "particle";
+            p.style.left = Math.random()*100 + "%";
+            p.style.animationDelay = (Math.random()*3) + "s";
+            document.body.appendChild(p);
+        }
+    });
+</script>
+
+</head>
+<body>
+    <h1>Bienvenido </h1>
+</body>
+</html>
